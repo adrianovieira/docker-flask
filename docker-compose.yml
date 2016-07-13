@@ -1,0 +1,9 @@
+version: '2'
+services:
+  flask_kafka:
+    build: .
+    image: adrianovieira/flask_kafka:debian8
+    ports:
+     - "80:80"
+    volumes:
+     - ./code:/var/www/html
