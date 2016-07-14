@@ -5,4 +5,4 @@ if [[ "$HTTP_PROXY" != "http://proxy_not_set:3128" ]]; then
   ENVIRONMENT="--build-arg https_proxy=$HTTP_PROXY --build-arg http_proxy=$HTTP_PROXY"
 fi
 
-docker build $ENVIRONMENT -t adrianovieira/flask_kafka:debian8 .
+docker build $ENVIRONMENT -t adrianovieira/flask_kafka$2 $1 .
