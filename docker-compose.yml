@@ -2,7 +2,7 @@ version: '2'
 services:
   flask_kafka:
     build: .
-    image: adrianovieira/flask_kafka:debian8
+    image: adrianovieira/flask_kafka
     ports:
      - "80:80"
     volumes:
