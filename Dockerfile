@@ -34,5 +34,5 @@ RUN pip install -r requirements.txt
 ADD code /var/www/html
 WORKDIR /var/www/html
 
-# run falsk app on apache
+# run flask app on apache
 CMD /usr/sbin/apache2ctl -D FOREGROUND
