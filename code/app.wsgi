@@ -1,12 +1,15 @@
-# -*- coding: utf-8 -*-
-import os, time
-from flask import Flask
-application = Flask(__name__)
+# -*- coding: UTF-8 -*-
+'''
+Application: flask_kafka
+Modulue: application starting point
+description: Tasting docker, redis, kafka
+author: Adriano dos Santos Vieira <adriano.svieira at google.com>
+character encoding: UTF-8
+'''
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+reload(sys)
+sys.setdefaultencoding('UTF-8')
 
-@application.route("/")
-def hello_world():
-    return "Hello, World of Flask on Docker!" + \
-           "<br /><small>"+time.strftime("%d/%h/%Y %H:%M:%S") + \
-           "<br />@" + os.uname()[1] + \
-           "<br />Hosted on: " + ' '.join(os.uname()) + \
-           "</small>"
+from main import application
