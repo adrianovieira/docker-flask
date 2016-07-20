@@ -14,11 +14,7 @@ application = Flask(__name__, template_folder='views')
 
 @application.route("/")
 def hello_world():
-    return "Hello, World of Flask on Docker! About" + \
-           "<br /><small>"+time.strftime("%d/%h/%Y %H:%M:%S") + \
-           "<br />@" + os.uname()[1] + \
-           "<br />Hosted on: " + ' '.join(os.uname()) + \
-           "</small>"
+    return render_template('base.html')
 
 @application.route("/about")
 def about():
