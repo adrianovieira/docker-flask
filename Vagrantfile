@@ -15,6 +15,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.define "Docker-Flask_Kafka"
   config.vm.box = "adrianovieira/centos7-docker1.12rc4"
+  config.vm.box_check_update = false
 
   # standard sync folder between host and VM (not host shared)
   config.vm.synced_folder ".", "/home/vagrant/sync", type: "rsync"
