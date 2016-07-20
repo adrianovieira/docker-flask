@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Flask-Kafka {% block title %}{% endblock %}</title>
+    {% endblock %}
+  </head>
+  <body>
+    <div id="nav">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+    </div>
+    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="footer">
+      {% block footer %}
+
+      {% endblock %}
+    </div>
+  </body>
+</html>
