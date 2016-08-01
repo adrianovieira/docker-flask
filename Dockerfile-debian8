@@ -4,9 +4,10 @@ MAINTAINER Adriano Vieira <adriano.svieira at gmail.com>
 
 # install base packs
 # apache.wsgi python pip
-RUN apt-get clean && apt-get update
-RUN apt-get install -y apache2 libapache2-mod-wsgi python-pip python-dev
-RUN pip install --upgrade pip
+RUN apt-get clean && apt-get update ; \
+    apt-get install -y apache2 libapache2-mod-wsgi python-pip python-dev; \
+    apt-get clean ; \
+    pip install --upgrade pip
 
 # enable apache modules
 RUN a2enmod wsgi rewrite
