@@ -10,16 +10,28 @@
  '''
 
 VAGRANTFILE_API_VERSION = "2"
+Vagrant.require_version ">= 1.7.2"
 
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version. Please don't change it unless you know what
+# you're doing.
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  config.vm.define "Docker-Flask_Kafka"
+  config.vm.define "Docker-Flask"
   config.vm.box = "adrianovieira/centos7-docker1.12-GA"
   config.vm.box_check_update = false
 
   # Defining Forwarded Ports
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.network "forwarded_port", guest: 5000, host: 5000
+
+  config.vm.provider "virtualbox" do |vb|
+     #vb.gui = true
+     #vb.memory = "4096"
+     #vb.cpus = 2
+     vb.name = "Docker-Flask"
+  end
+
 
   # shared folder between host and VM (may be for development porposes)
   config.vm.synced_folder ".", "/home/vagrant/shared"
