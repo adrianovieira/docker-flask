@@ -1,6 +1,6 @@
 version: '2'
 services:
-  flask_kafka:
+  web:
     build: .
     image: adrianovieira/flask
     ports:
