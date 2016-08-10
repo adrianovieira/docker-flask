@@ -2,7 +2,7 @@ version: '2'
 services:
   flask_kafka:
     build: .
-    image: adrianovieira/flask_kafka
+    image: adrianovieira/flask
     ports:
      - "5000:80"
     volumes:
