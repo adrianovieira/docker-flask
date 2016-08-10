@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 '''
-Application: flask_kafka
+Application: flask
 Modulue: application starting point
 description: Tasting docker, redis, kafka
 author: Adriano dos Santos Vieira <adriano.svieira at google.com>

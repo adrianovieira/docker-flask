@@ -1,6 +1,6 @@
 # coding: utf-8
 '''
-Application: flask_kafka
+Application: flask
 Modulue: main
 description: Tasting docker, redis, kafka
 author: Adriano dos Santos Vieira <adriano.svieira at google.com>
