@@ -51,9 +51,13 @@ Proof of Concept for image sizes:
 
 First of all we need a host with Docker-1.12+ pre-installed and running. May be you could use one of my "Docker boxes" <https://app.vagrantup.com/adrianovieira> with built-in docker-1.12.
 
+The docker images can be found on Docker Hub - <https://hub.docker.com/r/adrianovieira/flask/>
+
 If you're familiar Docker with you could take it (e.g.: `docker pull adrianovieira/flask`) and play around.
 
-If not, let me know how I'd improve this ***doc*** or even you'd take a look at my other project <https://github.com/adrianovieira/docker-swarm>.
+If not, let me know how I can improve this ***doc***.
+
+You'd take a look at my other project <https://github.com/adrianovieira/docker-swarm>.
 
 ### Proxy
 
