@@ -49,7 +49,7 @@ Proof of Concept for image sizes:
 
 ## Setup and Tasting
 
-First of all we need a host with Docker-1.12+ pre-installed and running. May be you could use one of my "Docker boxes" <https://atlas.hashicorp.com/adrianovieira/boxes> with built-in docker-1.12.
+First of all we need a host with Docker-1.12+ pre-installed and running. May be you could use one of my "Docker boxes" <https://app.vagrantup.com/adrianovieira> with built-in docker-1.12.
 
 If you're familiar Docker with you could take it (e.g.: `docker pull adrianovieira/flask`) and play around.
 
