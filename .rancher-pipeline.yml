@@ -1,0 +1,8 @@
+---
+stages:
+- name: Test
+  steps:
+  - runScriptConfig:
+      image: registry-bin.ebc/ebc-docker:17.03-ebc-2.0
+      shellScript: |-
+        hadolint Dockerfile
