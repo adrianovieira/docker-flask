@@ -1,6 +1,6 @@
 FROM centos:7
 
-MAINTAINER Adriano Vieira <adriano.svieira at gmail.com>
+LABEL maintainer 'Adriano Vieira <adriano.svieira at gmail.com>'
 
 # install base packs
 # apache.wsgi python pip
