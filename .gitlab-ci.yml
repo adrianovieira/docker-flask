@@ -1,14 +1,38 @@
 ---
 image: registry-bin.ebc/ebc-docker:17.03-ebc-2.0
 
+.docker_service: &docker_service
+  image: registry-bin.ebc/ebc-docker:17.03-ebc-2.0
+  services:
+    - name: registry-bin.ebc/ebc-docker:17.03-dind-ebc-2.0
+      alias: docker
+  before_script:
+    - docker login -u "${PROJECT_REGISTRY_USER}" -p "${PROJECT_REGISTRY_USER_PASS}" "${EBC_REGISTRY_URL}"
+
 stages:
   - test
-  - containerize
+  - release
 
 variables:
-  CONTAINER_IMAGE_TAG: "${EBC_REGISTRY_URL}/${CI_PROJECT_NAME}:0.54-ebc-${CI_COMMIT_REF_NAME}"
+  CONTAINER_IMAGE_TAG: "${EBC_REGISTRY_URL}/${CI_PROJECT_NAME}:${CI_COMMIT_REF_NAME}"
 
 test::docker linter e build:
+  <<: *docker_service
   stage: test
   script:
     - hadolint Dockerfile
+    - docker build --tag $CONTAINER_IMAGE_TAG .
+
+release docker image:
+  <<: *docker_service
+  stage: release
+  script:
+    - docker build --tag $CONTAINER_IMAGE_TAG .
+    - docker push $CONTAINER_IMAGE_TAG
+  only:
+    - /^(?:(\d+)\.)?(?:(\d+)\.)?(\*|\d+)-alpha\d+$/
+    - /^(?:(\d+)\.)?(?:(\d+)\.)?(\*|\d+)-beta\d+$/
+    - /^(?:(\d+)\.)?(?:(\d+)\.)?(\*|\d+)-RC\d+$/
+    - /^(?:(\d+)\.)?(?:(\d+)\.)?(\*|\d+)$/
+  except:
+    - master
