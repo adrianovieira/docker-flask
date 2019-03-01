@@ -3,6 +3,10 @@ image: registry-bin.ebc/ebc-docker:17.03-ebc-2.0
 
 stages:
   - test
+  - containerize
+
+variables:
+  CONTAINER_IMAGE_TAG: "${EBC_REGISTRY_URL}/${CI_PROJECT_NAME}:0.54-ebc-${CI_COMMIT_REF_NAME}"
 
 test::docker linter e build:
   stage: test
