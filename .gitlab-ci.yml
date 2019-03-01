@@ -7,4 +7,4 @@ stages:
 test::docker linter e build:
   stage: test
   script:
-    - hadolint Dockerfile --ignore DL4006 --ignore DL3025
+    - hadolint Dockerfile
